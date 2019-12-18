@@ -1,14 +1,18 @@
 import json
-
+from flask import Flask
 from flask import request
-
-from . import create_app, database
+from source_code.src.example import config
+from . import database
 from .models import Cats
 
-app = create_app()
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = config.DATABASE_CONNECTION_URI
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.app_context().push()
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET']) # '/' means home page of the app
 def fetch():
     cats = database.get_all(Cats)
     all_cats = []
@@ -47,3 +51,9 @@ def edit(cat_id):
     new_price = data['price']
     database.edit_instance(Cats, id=cat_id, price=new_price)
     return json.dumps("Edited"), 200
+
+if __name__ == '__main__':
+    from .models import db
+    db.init_app(app)
+    db.create_all()
+    app.run(port = 5000)
