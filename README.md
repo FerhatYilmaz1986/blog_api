@@ -18,3 +18,5 @@
    
  ## References:  
  wikipedia.org  
+ https://www.codementor.io/olawalealadeusi896/restful-api-with-python-flask-framework-and-postgres-db  
+ https://medium.com/@hmajid2301/implementing-sqlalchemy-with-docker-cb223a8296de
