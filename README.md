@@ -1,7 +1,7 @@
 ## Project-4
   
 ### In this project, I built an app using Flask,Python and Docker:
-* 
+* Complete this tutorial on getting Docker, Flask, Postgres and SQLalchemy working together
 ## Author:  
  Ferhat Yilmaz   
  
