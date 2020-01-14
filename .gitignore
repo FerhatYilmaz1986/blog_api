@@ -1,2 +1,5 @@
-venv
-.idea
+.vscode
+.coverage
+.pytest_cache
+.coveralls.yml
+.env
